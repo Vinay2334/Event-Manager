@@ -1,0 +1,58 @@
+.eventcards {
+  width: 100%;
+  gap: 20px;
+  height: fit-content;
+  max-height: 20vmax;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  text-decoration: none;
+  color: rgb(48, 48, 48);
+  margin: 2vmax;
+  transition: all 0.5s;
+  padding-bottom: 0.5vmax;
+}
+
+.eventcards img {
+  min-width: 20vmax;
+  min-height: 15vmax;
+  width: 20vmax;
+}
+
+.event-data h1 {
+  font-size: 1.5vmax;
+}
+
+.event-data p {
+  font-size: 13px;
+}
+
+.like-btn {
+  color: gainsboro;
+  cursor: pointer;
+}
+.red {
+  color: red;
+}
+
+@media only screen and (max-width: 500px) {
+  .eventcards {
+    min-height: 330px;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 0px;
+    margin: 10px 0;
+    padding: 0;
+  }
+  .eventcards img {
+    width: 100%;
+    height: inherit;
+  }
+  .event-data h1 {
+    font-size: 2vmax;
+  }
+
+  .event-data p {
+    font-size: 7px;
+  }
+}

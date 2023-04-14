@@ -1,0 +1,14 @@
+.components{
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+}
+@media only screen and (max-width: 500px) {
+    .components{
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 0px;
+        width: 75vw;
+    }
+}
