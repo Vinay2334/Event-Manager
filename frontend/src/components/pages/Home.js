@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import EventCards from "../layout/EventCards.js";
 import { EventContext } from '../context/eventContext.js';
+import {toast} from "react-toastify"
 
 const Home = () => {
   const {getAllEvents, allEvents} = useContext(EventContext);
@@ -10,7 +11,7 @@ const Home = () => {
       await getAllEvents();
       }
       catch(err){
-        alert(err);
+        toast.error(err.response.data);
       }
     }
     fetchData();

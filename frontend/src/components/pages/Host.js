@@ -4,6 +4,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./Host.css";
 import { EventContext } from "../context/eventContext";
+import {toast} from "react-toastify";
 
 const Host = () => {
   const [date, setDate] = useState("");
@@ -43,10 +44,10 @@ const Host = () => {
     try {
       const res = await createEvents(inputs);
       navigate("/");
-      alert(res);
+      toast.success(res);
     } catch (err) {
       console.log(err);
-      alert(err.response.data.error);
+      toast.error(err.response.data.error);
     }
   };
   return (

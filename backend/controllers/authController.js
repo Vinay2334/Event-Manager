@@ -22,9 +22,11 @@ exports.register = async (req,res) => {
       folder: "Event-avatar",
       width: 150,
       crop: "scale",
+      secure: true,
     });
-    const imgUrl = myCloud.url;
+    const imgUrl = myCloud.secure_url;
     const imgId = myCloud.public_id;
+    console.log(imgUrl);
 
      q = "INSERT INTO users(`username`,`email`,`password`,`img`, img_id) VALUES (?)";
      values = [req.body.username, req.body.email, hash, imgUrl, imgId];

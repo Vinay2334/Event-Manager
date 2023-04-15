@@ -3,6 +3,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { AuthContext } from "../context/authContext";
+import {toast} from "react-toastify";
 
 function Navbar() {
   const navRef = useRef();
@@ -15,10 +16,10 @@ function Navbar() {
   const handleLogout = async (e) => {
     try {
       await logout();
-      alert("Logged Out Sccessfully");
+      toast.success("Logged Out Sccessfully");
       window.location.assign('/')
     } catch (err) {
-      alert(err);
+      toast.error(err.response.data);
     }
   };
 
@@ -34,7 +35,7 @@ function Navbar() {
           {currentUser && (
 			<>
 			<Link to="/myevents">Your Events</Link>
-            <img src={`${currentUser.user.img}`} alt="" srcset="" />
+            <img src={`${currentUser.user.img}`} alt="img"/> 
 			</>
           )}
           <span>{currentUser?.user.email}</span>

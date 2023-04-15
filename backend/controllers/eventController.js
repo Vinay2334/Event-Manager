@@ -54,6 +54,7 @@ exports.createEvent = [
       });
       const imgUrl = myCloud.url;
       const imgId = myCloud.public_id;
+      console.log("imageUrl",imgUrl);
 
       q =
         "INSERT INTO events(`event_name`,`data`,`time`,`location`,`event_img`,`uid`,`event_img_id`) VALUES (?)";

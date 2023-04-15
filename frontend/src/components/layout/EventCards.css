@@ -26,10 +26,14 @@
 .event-data p {
   font-size: 13px;
 }
-
+.name-like{
+  display: flex;
+  justify-content: space-between;
+}
 .like-btn {
   color: gainsboro;
   cursor: pointer;
+  font-size: 25px;
 }
 .red {
   color: red;
@@ -51,7 +55,9 @@
   .event-data h1 {
     font-size: 2vmax;
   }
-
+  .like-btn{
+    font-size: 15px;
+  }
   .event-data p {
     font-size: 7px;
   }

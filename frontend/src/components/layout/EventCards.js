@@ -3,6 +3,7 @@ import "./EventCards.css";
 import { AiFillHeart } from "react-icons/ai";
 import DOMPurify from "dompurify";
 import { EventContext } from "../context/eventContext";
+import { toast } from "react-toastify";
 
 const EventCards = ({ event, host }) => {
   const { likeEvent } = useContext(EventContext);
@@ -23,8 +24,9 @@ const EventCards = ({ event, host }) => {
   const handleLikes = async () => {
     try {
       await likeEvent(event.eid);
+      toast.success("Event Liked!");
     } catch (err) {
-      alert(err.response.data.error);
+      toast.error(err.response.data.error);
     }
   };
   return (
@@ -36,16 +38,18 @@ const EventCards = ({ event, host }) => {
       <div className="event-data">
         <h1>{event.event_name}</h1>
         <p>{event.location}</p>
-        <p style={{ color: "green" }}>
-          Hosted By : {host ? host.user.username : event.user_name}
-        </p>
+        <div className="name-like">
+          <p style={{ color: "green" }}>
+            Hosted By : {host ? host.user.username : event.user_name}
+          </p>
+          {!host && (
+            <AiFillHeart
+              className={`like-btn ${event.is_like ? "red" : ""}`}
+              onClick={handleLikes}
+            />
+          )}
+        </div>
         <p>Date: {formattedDate}</p>
-        {!host && (
-          <AiFillHeart
-            className={`like-btn ${event.is_like ? "red" : ""}`}
-            onClick={handleLikes}
-          />
-        )}
         <p
           dangerouslySetInnerHTML={{
             __html: limitWords(event.data, 37),
